@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test1.c                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: polmos-g <polmos-g@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 10:23:04 by polmos-g          #+#    #+#             */
-/*   Updated: 2024/10/31 10:25:11 by polmos-g         ###   ########.fr       */
+/*   Created: 2024/09/27 09:21:43 by polmos-g          #+#    #+#             */
+/*   Updated: 2024/09/27 09:21:50 by polmos-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <stdio.h>
 #include "libft.h"
 
-int	main(void)
+void	*ft_calloc(size_t nmem, size_t size)
 {
-	printf ("Hola test git 42M_libft\n");
-	return (0);
-}
+	char	*str;
+	size_t	i;
 
+	str = (char *) malloc (nmem * size);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < nmem * size)
+		str[i++] = '\0';
+	return ((void *)str);
+}
